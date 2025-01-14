@@ -2796,7 +2796,7 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 
                 // data type
                 $type = $dataValidation->getType();
-                Log::info($type);
+                
                 switch ($type) {
                     case PHPExcel_Cell_DataValidation::TYPE_NONE:
                         $type = 0x00;
@@ -2823,12 +2823,12 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
                         $type = 0x07;
                         break;
                 }
-                Log::info($type);
+                
                 $options |= $type << 0;
 
                 // error style
                 $errorStyle = $dataValidation->getErrorStyle();
-                //Log::info($errorStyle);
+                
                 switch ($errorStyle) {
                     case PHPExcel_Cell_DataValidation::STYLE_STOP:
                         $errorStyle = 0x00;
@@ -2840,9 +2840,9 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
                         $errorStyle = 0x02;
                         break;
                 }
-                Log::info($errorStyle);
+                
                 //$errorStyle = 0x02;
-                Log::info(PHPExcel_Cell_DataValidation::STYLE_INFORMATION);
+                
                 $options |= $errorStyle << 4;
 
                 // explicit formula?
